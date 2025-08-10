@@ -1,0 +1,45 @@
+$date
+  Thu Aug  7 20:53:37 2025
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module prueba_tb $end
+$var reg 1 ! s_input1 $end
+$var reg 1 " s_input2 $end
+$var reg 1 # s_output $end
+$scope module dut $end
+$var reg 1 $ input1 $end
+$var reg 1 % input2 $end
+$var reg 1 & output $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+0"
+0#
+0$
+0%
+0&
+#10000000
+1!
+1$
+#20000000
+0!
+1"
+0$
+1%
+#30000000
+1!
+1#
+1$
+1&
+#40000000
