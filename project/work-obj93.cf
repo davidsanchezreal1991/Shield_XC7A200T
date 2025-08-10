@@ -1,0 +1,7 @@
+v 4
+file . "sim/display_tb.vhdl" "521d2e293a723e063ddc2eea12ce90ada86f3a5f" "20250810231707.990":
+  entity display_tb at 1( 0) + 0 on 57;
+  architecture test of display_tb at 8( 111) + 0 on 58;
+file . "src/display.vhdl" "63ed87852ec4fb7d4b951ca1f7553f8d8faddcd0" "20250810231707.986":
+  entity display at 1( 0) + 0 on 55;
+  architecture rtl of display at 18( 529) + 0 on 56;
