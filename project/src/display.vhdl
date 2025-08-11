@@ -17,40 +17,40 @@ end entity;
 
 architecture rtl of display is
 
-  signal  contador  :   std_logic_vector(1 downto 0) := "00";
-  signal  input4    :   std_logic_vector(4 downto 0) := "00000";
+  signal  contador  :   std_logic_vector(1 downto 0) := (others => '0');
+  signal  s_input   :   std_logic_vector(4 downto 0) := (others => '0');
   begin
 
   segs: process (clk, rst)
     begin
       if rst = '1' then
-        contador  <= "00";
-        seg       <= "000";
-      elsif clk = '1' and clk'event then
+        contador  <= (others => '0');
+        seg       <= (others => '0');
+      elsif rising_edge(clk) then
         if en = '1' then
           case contador is
             when "00" =>
               seg       <= "000";
-              input4    <= "XXXXX";
+              s_input    <= (others => '0');
               contador  <= "01";
             when "01" =>
               seg       <= "001";
-              input4    <= input1;
+              s_input    <= input1;
               contador  <= "10";
             when "10" =>
               seg       <= "010";
-              input4    <= input2;
+              s_input    <= input2;
               contador  <= "11";
             when "11" =>
               seg       <= "100";
-              input4    <= input3;
+              s_input    <= input3;
               contador  <= "01";
             when others   =>
-              seg  <= "XXX";
+              seg  <= (others => 'X');
             end case;
         else
-          seg       <= "000";
-          contador  <= "00";
+          seg       <= (others => '0');
+          contador  <= (others => '0');
         end if;
       end if;
   end process segs;
@@ -58,10 +58,10 @@ architecture rtl of display is
   leds: process (clk, rst)
     begin
       if rst = '1' then
-        led <= "11111111";
-      elsif clk = '1' and clk'event then
+        led <= (others => '1');
+      elsif rising_edge(clk) then
         if en = '1' then
-          case input4 is
+          case s_input is
             when "00000" =>  led <= "00000011";
             when "00001" =>  led <= "10011111";
             when "00010" =>  led <= "00100101";
@@ -94,10 +94,10 @@ architecture rtl of display is
             when "11101" =>  led <= "10000100";
             when "11110" =>  led <= "01100000";
             when "11111" =>  led <= "01110000";
-            when others  =>  led <= "XXXXXXXX";
+            when others  =>  led <= (others => 'X');
           end case;
         else
-          led <= "11111111";
+          led <= (others => '1');
         end if;
       end if;
     end process leds;

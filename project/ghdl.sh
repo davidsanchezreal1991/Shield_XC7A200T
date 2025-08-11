@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ghdl -a src/display.vhdl
-ghdl -a sim/display_tb.vhdl
-ghdl -e display_tb
-ghdl -r display_tb --vcd=wave/wave.vcd --stop-time=1us
+ghdl -a --std=08 src/display.vhdl
+ghdl -a --std=08 sim/display_tb.vhdl
+ghdl -e --std=08 display_tb
+ghdl -r --std=08 display_tb --vcd=wave/wave.vcd #--stop-time=1us
