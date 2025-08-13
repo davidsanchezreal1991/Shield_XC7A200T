@@ -1,0 +1,4 @@
+v 4
+file . "display.vhdl" "acd4815a779bb49ea4119ae7baa1fb70ef482b49" "20250813162131.067":
+  entity display at 1( 0) + 0 on 13;
+  architecture rtl of display at 22( 776) + 0 on 14;
